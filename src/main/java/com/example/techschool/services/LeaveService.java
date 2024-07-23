@@ -23,10 +23,8 @@ public class LeaveService {
     public LeaveDTO addLeave(LeaveDTO leaveDTO){
         validateDateCalculation(leaveDTO);
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-
         LocalDate fromDate = LocalDate.parse(leaveDTO.getFrom_date(), dateTimeFormatter);
         LocalDate toDate = LocalDate.parse(leaveDTO.getTo_date(), dateTimeFormatter);
-
         LeaveManagement saveLeaveManagement = new LeaveManagement();
         saveLeaveManagement.setFrom_date(fromDate);
         saveLeaveManagement.setTo_date(toDate);
@@ -34,6 +32,8 @@ public class LeaveService {
         LeaveManagement leaveManagement = leaveRepository.save(saveLeaveManagement);
         return convertDTO(leaveManagement);
     }
+
+
 
 
     private void validateDateCalculation(LeaveDTO leaveDTO) {
@@ -54,4 +54,5 @@ public class LeaveService {
         leaveDTO.setReason(leaveManagement.getReason());
         return leaveDTO;
     }
+
 }

@@ -22,4 +22,9 @@ public class LeaveController {
         return  new GenericResponse(leaveService.addLeave(leaveDTO));
     }
 
+//    @GetMapping
+//    public GenericResponse getAllLeave(@RequestBody LeaveDTO leaveDTO){
+//        return new GenericResponse(leaveService.getAllLeave());
+//    }
+
 }
