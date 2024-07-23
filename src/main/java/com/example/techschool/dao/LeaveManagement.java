@@ -9,6 +9,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 
 @Entity
@@ -21,8 +23,8 @@ public class LeaveManagement {
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uuid2", strategy = "uuid2")
     private String id;
-    private ZonedDateTime from_date;
-    private ZonedDateTime to_date;
+    private LocalDate from_date;
+    private LocalDate to_date;
     private String reason;
 
 }
