@@ -8,27 +8,24 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.hibernate.annotations.GenericGenerator;
 
-import java.security.PublicKey;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 
+
 @Entity
-@Table(name="leaves")
+@Table(name="check_in_outs")
 @Data
 @NoArgsConstructor
-public class LeaveManagement {
+public class CheckInOut {
 
     @Id
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uuid2", strategy = "uuid2")
     private String id;
-    private LocalDate from_date;
-    private LocalDate to_date;
-    private String reason;
-
-    @Enumerated(EnumType.STRING)
-    private LeaveStatus status;
+    private LocalDate date;
+    private ZonedDateTime checkIn;
+    private ZonedDateTime checkOut;
+    private boolean status;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -36,6 +33,3 @@ public class LeaveManagement {
     @EqualsAndHashCode.Exclude
     private User user;
 }
-
-
-

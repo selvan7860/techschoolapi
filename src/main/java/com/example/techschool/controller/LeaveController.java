@@ -22,9 +22,19 @@ public class LeaveController {
         return  new GenericResponse(leaveService.addLeave(leaveDTO));
     }
 
-//    @GetMapping
-//    public GenericResponse getAllLeave(@RequestBody LeaveDTO leaveDTO){
-//        return new GenericResponse(leaveService.getAllLeave());
-//    }
+    @PutMapping("/{id}")
+    public GenericResponse updateLeave(@PathVariable String id, @RequestBody LeaveDTO leaveDTO){
+        return new GenericResponse(leaveService.updateLeave(id, leaveDTO));
+    }
+
+    @DeleteMapping("{id}")
+    public GenericResponse deleteLeave(@PathVariable String id){
+        return new GenericResponse(leaveService.deleteLeave(id));
+    }
+
+    @GetMapping("/{id}")
+    public GenericResponse getAllLeave(@PathVariable String id){
+        return new GenericResponse(leaveService.getAllLeave(id));
+    }
 
 }
